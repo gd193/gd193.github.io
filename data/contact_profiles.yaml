@@ -1,5 +1,9 @@
 email: volkmann@ml.jku.at
 profiles:
+  - id: github
+    name: GitHub
+    icon: brands/github
+    url: https://github.com/gd193
   - id: scholar
     name: Google Scholar
     icon: academicons/google-scholar

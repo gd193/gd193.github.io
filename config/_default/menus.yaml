@@ -8,6 +8,9 @@ main:
   - name: CV
     url: /#cv
     weight: 30
+  - name: Publications
+    url: /#selected-work
+    weight: 35
   - name: Presentations
     url: /#presentations
     weight: 40

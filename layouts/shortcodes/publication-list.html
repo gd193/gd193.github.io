@@ -1,0 +1,30 @@
+<ul class="publication-list" aria-label="Selected publications">
+{{ range site.Data.publications }}
+  {{ $paper := . }}
+  {{ $teaser := resources.Get .teaser }}
+  {{ if reflect.IsImageResourceProcessable $teaser }}{{ $teaser = $teaser.Fit "320x220 webp" }}{{ end }}
+  {{ $bibtex := readFile (printf "static/bibtex/%s.bib" .id) }}
+  <li class="publication-row" aria-labelledby="publication-{{ .id }}">
+    <a class="publication-teaser" href="{{ .paper }}" target="_blank" rel="noopener noreferrer" aria-label="Read {{ .title }} (opens in a new tab)">
+      <img src="{{ $teaser.RelPermalink }}" alt="{{ .teaser_alt }}" loading="lazy" decoding="async" width="{{ $teaser.Width }}" height="{{ $teaser.Height }}">
+    </a>
+    <div class="publication-content">
+      <h3 id="publication-{{ .id }}"><a href="{{ .paper }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a></h3>
+      <p class="publication-authors">{{ range $index, $author := .authors }}{{ if $index }}, {{ end }}{{ if eq $author "Eric Volkmann" }}<strong>{{ $author }}</strong>{{ else }}{{ $author }}{{ end }}{{ end }}</p>
+      <div class="publication-links">
+        <a class="publication-action" href="{{ .paper }}" target="_blank" rel="noopener noreferrer">Paper</a>
+        {{ with .code }}<a class="publication-action" href="{{ . }}" target="_blank" rel="noopener noreferrer">Code</a>{{ end }}
+        <button class="publication-action" type="button" hidden data-bibtex-copy aria-controls="bibtex-{{ .id }}" aria-expanded="false" aria-label="Show and copy BibTeX for {{ .title }}">BibTeX</button>
+      </div>
+      <span class="publication-venue">{{ .venue }}</span>
+      <details class="publication-bibtex" id="bibtex-{{ .id }}">
+        <summary>BibTeX</summary>
+        <pre tabindex="0" aria-label="BibTeX citation for {{ .title }}"><code>{{ $bibtex }}</code></pre>
+        <a href="{{ printf "bibtex/%s.bib" .id | relURL }}" download>Download citation</a>
+      </details>
+      <span class="publication-copy-status" role="status" aria-live="polite"></span>
+    </div>
+  </li>
+{{ end }}
+</ul>
+<script src="{{ "js/publications.js" | relURL }}" defer></script>

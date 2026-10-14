@@ -405,6 +405,94 @@ html.dark {
 }
 #presentations .group:hover img[src$="twisted-torus-twist10.gif"] { transform: none; }
 
+/* Compact paper rows: preserve the full author list and keep assets easy to scan. */
+#selected-work .prose .publication-list { list-style: none; padding: 0; margin: 0; }
+#selected-work .prose .publication-row {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 1.25rem;
+  padding: 1.5rem 0;
+  margin: 0;
+  border-bottom: 1px solid #dce3ed;
+}
+.dark #selected-work .prose .publication-row { border-color: #272c35; }
+#selected-work .publication-row:last-child { border-bottom: 0; }
+#selected-work .publication-teaser {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: start;
+  height: 100px;
+  overflow: hidden;
+  border: 1px solid #dce3ed;
+  border-radius: .625rem;
+  background: #f5f7fa;
+}
+.dark #selected-work .publication-teaser { background: #141820; border-color: #272c35; }
+#selected-work .publication-teaser img { width: 100%; height: 100%; object-fit: contain; margin: 0; }
+#selected-work .publication-content { min-width: 0; }
+#selected-work .publication-content h3 { margin: 0 0 .5rem; font-size: 1.125rem; line-height: 1.4; }
+#selected-work .publication-content h3 a { text-decoration: none; }
+#selected-work .publication-content h3 a:hover { text-decoration: underline; }
+#selected-work .publication-authors { margin: 0 0 .5rem; font-size: .9375rem; line-height: 1.6; color: #475569; }
+.dark #selected-work .publication-authors { color: #cbd5e1; }
+#selected-work .publication-authors strong { color: #172033; font-weight: 750; }
+.dark #selected-work .publication-authors strong { color: #fff; }
+#selected-work .publication-links { display: flex; flex-wrap: wrap; gap: .5rem; }
+#selected-work .publication-action,
+#selected-work .publication-bibtex summary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: .35rem .8rem;
+  font: inherit;
+  font-size: .875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #2457a7;
+  background: #f1f5fb;
+  border: 1px solid #dce3ed;
+  border-radius: .5rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+.dark #selected-work .publication-action,
+.dark #selected-work .publication-bibtex summary { color: #a7c8ff; background: #121c2c; border-color: #35445e; }
+#selected-work .publication-action:hover { border-color: #2457a7; }
+.dark #selected-work .publication-action:hover { border-color: #8ab4f8; }
+#selected-work .publication-action[hidden],
+#selected-work .publication-bibtex summary[hidden] { display: none; }
+#selected-work .publication-bibtex { margin-top: .75rem; }
+#selected-work .publication-bibtex pre {
+  margin: .5rem 0;
+  padding: 1rem;
+  font-size: .8rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  border: 1px solid #dce3ed;
+  border-radius: .5rem;
+  background: #f5f7fa;
+  color: #172033;
+}
+.dark #selected-work .publication-bibtex pre { border-color: #35445e; background: #10151e; color: #e2e8f0; }
+#selected-work .publication-bibtex code { font-size: inherit; background: transparent; }
+#selected-work .publication-bibtex code::before,
+#selected-work .publication-bibtex code::after { content: none; }
+#selected-work .publication-bibtex > a { font-size: .8125rem; }
+#selected-work .publication-copy-status { display: block; color: #475569; font-size: .8125rem; }
+.dark #selected-work .publication-copy-status { color: #cbd5e1; }
+#selected-work .publication-copy-status:not(:empty) { margin-top: .5rem; }
+#selected-work :is(a, button, summary, pre):focus-visible { outline: 2px solid #2457a7; outline-offset: 3px; }
+.dark #selected-work :is(a, button, summary, pre):focus-visible { outline-color: #8ab4f8; }
+@media (max-width: 540px) {
+  #selected-work .prose .publication-row { grid-template-columns: 80px minmax(0, 1fr); gap: .75rem; }
+  #selected-work .publication-teaser { height: 80px; }
+  #selected-work .publication-content h3 { font-size: 1rem; }
+  #selected-work .publication-authors { font-size: .875rem; }
+}
+
 /* Match the surrounding page and controls to the hero's half-second dissolve. */
 @media (prefers-reduced-motion: no-preference) {
   body, .contact-header, .contact-header a, .contact-header button,

@@ -1,0 +1,39 @@
+- id: gyaradax
+  title: 'gyaradax: Local Gyrokinetics JAX Code'
+  authors: [Gianluca Galletti, Eric Volkmann, Johannes Brandstetter]
+  venue: AI4Science Workshop · ICML 2026
+  paper: https://openreview.net/forum?id=Sgs7yLTkJ0
+  code: https://github.com/gerkone/gyaradax
+  teaser: media/presentations/vibecoding-gyaradax.png
+  teaser_alt: gyaradax project mascot
+- id: tom
+  title: Diverse Topology Optimization using Modulated Neural Fields
+  authors: [Andreas Radler, Eric Volkmann, Johannes Brandstetter, Arturs Berzins]
+  venue: AI for Science Workshop · NeurIPS 2025
+  paper: https://openreview.net/forum?id=2Qccww9opt
+  code: https://github.com/ml-jku/Topology-Optimization-Modulated-Neural-Fields
+  teaser: media/publications/tom-method.png
+  teaser_alt: Topology optimization using modulated neural fields method diagram
+- id: ginns
+  title: Geometry-Informed Neural Networks
+  authors: [Arturs Berzins, Andreas Radler, Eric Volkmann, Sebastian Sanokowski, Sepp Hochreiter, Johannes Brandstetter]
+  venue: ICML 2025
+  paper: https://proceedings.mlr.press/v267/berzins25a.html
+  code: https://github.com/ml-jku/GINNs-Geometry-informed-Neural-Networks
+  teaser: media/publications/ginn-overview.png
+  teaser_alt: Geometry-informed neural networks overview diagram
+- id: diverse-solutions
+  title: Exploring Diverse Solutions for Underdetermined Problems
+  authors: [Eric Volkmann, Andreas Radler, Johannes Brandstetter, Arturs Berzins]
+  venue: Methods and Opportunities at Small Scale (MOSS) Workshop · ICML 2025
+  paper: https://openreview.net/forum?id=HEqtcVOicH
+  teaser: media/publications/diverse-shapes.gif
+  teaser_alt: Illustrative examples of diverse generated shapes
+- id: neuroimaging
+  title: A scalable generative model for dynamical system reconstruction from neuroimaging data
+  authors: [Eric Volkmann, Alena Brändle, Daniel Durstewitz, Georgia Koppe]
+  venue: NeurIPS 2024
+  paper: https://proceedings.neurips.cc/paper_files/paper/2024/hash/9304fe9848ca4db73c79ac0bac414aef-Abstract-Conference.html
+  code: https://github.com/humml-lab/GTF-ConvSSM
+  teaser: media/research/dynamical-systems-learning.png
+  teaser_alt: Dynamical systems and neuroimaging research illustration

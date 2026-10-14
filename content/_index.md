@@ -37,11 +37,13 @@ sections:
     content:
       title: About
       text: |-
-        I am a PhD candidate at the Institute for Machine Learning at Johannes Kepler University Linz, supervised by [Prof. Johannes Brandstetter](https://scholar.google.com/citations?user=KiRvOHcAAAAJ) and [Prof. Sepp Hochreiter](https://scholar.google.com/citations?user=tvUH3WMAAAAJ). My research sits at the intersection of **3D machine learning, AI for Science, and physics**.
+        I am a PhD candidate at the Institute for Machine Learning at Johannes Kepler University Linz, supervised by [Prof. Johannes Brandstetter](https://scholar.google.com/citations?user=KiRvOHcAAAAJ) and [Prof. Sepp Hochreiter](https://scholar.google.com/citations?user=tvUH3WMAAAAJ). I am currently a research intern in the Computational Geometry Team at [Braid Technologies](https://braid.tech/) in Tokyo, working on autonomous CAD for physics-driven design optimization and discovery.
 
-        I work on inverse design using implicit representations (neural or otherwise), coupling geometry with physical simulation and optimization. My projects include geometry-informed neural networks and generative topology optimization, with a focus on producing diverse and structurally compliant designs without training data.
+        I work on inverse design using implicit representations (neural or otherwise), coupling geometry with physical simulation and optimization. My projects include geometry-informed neural networks and generative topology optimization, with a focus on producing diverse and structurally compliant designs.
 
-        I studied physics at Heidelberg University. My master's research focused on reconstructing dynamical systems from data using state-space models, including their long-term dynamics and state-space geometry.
+        Prior to my PhD, I completed my MSc and BSc in Physics at Heidelberg University in 2023, where my master's research focused on generative state-space models for reconstructing nonlinear dynamical systems.
+
+        My work has been published at NeurIPS and ICML.
 
   - block: research-areas
     id: research
@@ -116,8 +118,8 @@ sections:
           <div>
             <h3>Professional Experience</h3>
             <div class="cv-entry">
-              <p><strong>Research Intern · Geometry Team</strong><br><a href="https://braid.tech/">Braid Technologies</a> · Tokyo, Japan <span class="cv-date">Jul–Nov 2026</span></p>
-              <p class="cv-detail">Research on automated computer-aided design (CAD), integrating geometric modelling, physics-based simulation, and optimization.</p>
+              <p><strong>Research Intern · Computational Geometry Team</strong><br><a href="https://braid.tech/">Braid Technologies</a> · Tokyo, Japan <span class="cv-date">Jul–Nov 2026</span></p>
+              <p class="cv-detail">Research on autonomous CAD for physics-driven design optimization and discovery.</p>
             </div>
             <div class="cv-entry">
               <p><strong>Working Student · Data Science</strong><br><a href="https://www.scribos.com/">Kurz Scribos</a> · Heidelberg, Germany <span class="cv-date">May 2021–Jul 2023</span></p>
@@ -137,16 +139,7 @@ sections:
       text: |-
         ### Publications
 
-        - **gyaradax: Local Gyrokinetics JAX Code** — Gianluca Galletti, Eric Volkmann, Johannes Brandstetter. [Paper](https://openreview.net/forum?id=Sgs7yLTkJ0) · [Code](https://github.com/gerkone/gyaradax)
-          <span class="publication-venue">AI4Science Workshop · ICML 2026</span>
-        - **Diverse Topology Optimization using Modulated Neural Fields** — Andreas Radler, Eric Volkmann, Johannes Brandstetter, Arturs Berzins. [Paper](https://openreview.net/forum?id=2Qccww9opt) · [Code](https://github.com/ml-jku/Topology-Optimization-Modulated-Neural-Fields)
-          <span class="publication-venue">AI for Science Workshop · NeurIPS 2025</span>
-        - **Geometry-Informed Neural Networks** — Arturs Berzins, Andreas Radler, Eric Volkmann, Sebastian Sanokowski, Sepp Hochreiter, Johannes Brandstetter. [Paper](https://proceedings.mlr.press/v267/berzins25a.html) · [Code](https://github.com/ml-jku/GINNs-Geometry-informed-Neural-Networks)
-          <span class="publication-venue">ICML 2025</span>
-        - **Exploring Diverse Solutions for Underdetermined Problems** — Eric Volkmann, Andreas Radler, Johannes Brandstetter, Arturs Berzins. [Paper](https://openreview.net/forum?id=HEqtcVOicH)
-          <span class="publication-venue">Methods and Opportunities at Small Scale (MOSS) Workshop · ICML 2025</span>
-        - **A scalable generative model for dynamical system reconstruction from neuroimaging data** — Eric Volkmann, Alena Brändle, Daniel Durstewitz, Georgia Koppe. [Paper](https://proceedings.neurips.cc/paper_files/paper/2024/hash/9304fe9848ca4db73c79ac0bac414aef-Abstract-Conference.html) · [Code](https://github.com/humml-lab/GTF-ConvSSM)
-          <span class="publication-venue">NeurIPS 2024</span>
+        {{< publication-list >}}
 
 
   - block: research-areas
