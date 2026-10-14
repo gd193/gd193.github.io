@@ -1,0 +1,18 @@
+email: volkmann@ml.jku.at
+profiles:
+  - id: scholar
+    name: Google Scholar
+    icon: academicons/google-scholar
+    url: https://scholar.google.com/citations?user=BTpkGgEAAAAJ&hl=en&oi=ao
+  - id: orcid
+    name: ORCID
+    icon: academicons/orcid
+    url: https://orcid.org/0009-0001-3931-3771
+  - id: x
+    name: X
+    icon: brands/x
+    url: https://x.com/e_volkmann
+  - id: linkedin
+    name: LinkedIn
+    icon: brands/linkedin
+    url: https://www.linkedin.com/in/eric-volkmann-34b027205/

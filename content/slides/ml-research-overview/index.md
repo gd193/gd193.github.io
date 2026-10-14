@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Machine Learning Research Overview"
 date: 2025-12-25
 description: "A research presentation on recent advances in deep learning and neural networks"

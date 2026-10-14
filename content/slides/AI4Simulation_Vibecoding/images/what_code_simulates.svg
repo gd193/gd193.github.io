@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="520" viewBox="0 0 1120 520">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0078aa"/>
+    </marker>
+    <marker id="arrSmall" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0078aa"/>
+    </marker>
+    <linearGradient id="heat" x1="0" x2="1">
+      <stop offset="0" stop-color="#0078aa"/><stop offset="0.5" stop-color="#ffffff"/><stop offset="1" stop-color="#f28e2b"/>
+    </linearGradient>
+    <style>
+      text{font-family:Arial,Helvetica,sans-serif;fill:#1f2937}.head{font-size:26px;font-weight:800}.lab{font-size:18px;font-weight:700}.small{font-size:15px;fill:#4b5563}.axis{font-size:17px;font-weight:800;fill:#fff}.eq{font-size:22px;font-style:italic}.box{fill:#f8fafc;stroke:#cbd5e1;stroke-width:2}.teal{fill:#e6f7f5;stroke:#009688;stroke-width:3}.blue{fill:#eef7fb;stroke:#0078aa;stroke-width:3}.orange{fill:#fff4e6;stroke:#f28e2b;stroke-width:3}
+    </style>
+  </defs>
+  <rect width="1120" height="520" fill="#fff"/>
+
+  <text x="70" y="48" class="head">The code evolves a turbulent distribution, not individual particles</text>
+
+  <!-- physical / flux tube panel -->
+  <rect x="55" y="80" width="315" height="330" rx="20" class="blue"/>
+  <text x="212" y="118" text-anchor="middle" class="lab">local flux tube</text>
+  <ellipse cx="212" cy="235" rx="120" ry="62" fill="none" stroke="#64748b" stroke-width="10" opacity="0.35"/>
+  <ellipse cx="212" cy="235" rx="70" ry="35" fill="none" stroke="#64748b" stroke-width="7" opacity="0.25"/>
+  <path d="M100 250 C150 110 275 365 330 220" fill="none" stroke="#0078aa" stroke-width="7" stroke-linecap="round"/>
+  <path d="M110 262 C158 122 282 372 338 232" fill="none" stroke="#009688" stroke-width="3" stroke-dasharray="9 7"/>
+  <text x="212" y="355" text-anchor="middle" class="small">follow one field-aligned tube</text>
+  <text x="212" y="382" text-anchor="middle" class="small">parallel coordinate: s</text>
+
+  <!-- phase space panel -->
+  <rect x="425" y="80" width="315" height="330" rx="20" class="teal"/>
+  <text x="582" y="118" text-anchor="middle" class="lab">5D state grid</text>
+  <g transform="translate(477,150)">
+    <rect x="0" y="0" width="58" height="58" rx="11" fill="#0078aa"/><text x="29" y="38" text-anchor="middle" class="axis">kx</text>
+    <rect x="70" y="0" width="58" height="58" rx="11" fill="#009688"/><text x="99" y="38" text-anchor="middle" class="axis">ky</text>
+    <rect x="140" y="0" width="58" height="58" rx="11" fill="#f28e2b"/><text x="169" y="38" text-anchor="middle" class="axis">s</text>
+    <rect x="70" y="78" width="58" height="58" rx="11" fill="#b83280"/><text x="99" y="116" text-anchor="middle" class="axis">v∥</text>
+    <rect x="140" y="78" width="58" height="58" rx="11" fill="#64748b"/><text x="169" y="116" text-anchor="middle" class="axis">μ</text>
+  </g>
+  <rect x="482" y="325" width="200" height="34" rx="17" fill="url(#heat)" stroke="#94a3b8"/>
+  <text x="582" y="386" text-anchor="middle" class="small">value stored: δf(kx,ky,s,v∥,μ)</text>
+
+  <!-- fields/evolve panel -->
+  <rect x="795" y="80" width="270" height="330" rx="20" class="orange"/>
+  <text x="930" y="118" text-anchor="middle" class="lab">one RHS evaluation</text>
+  <g transform="translate(820,150)">
+    <rect x="0" y="0" width="78" height="48" rx="12" fill="#eef2f7" stroke="#64748b" stroke-width="2"/><text x="39" y="31" text-anchor="middle" class="eq">fⁿ</text>
+    <path d="M84 24 H137" stroke="#0078aa" stroke-width="4" marker-end="url(#arrSmall)"/>
+    <rect x="147" y="0" width="78" height="48" rx="12" fill="#eef7fb" stroke="#0078aa" stroke-width="2"/><text x="186" y="31" text-anchor="middle" class="eq">ϕⁿ</text>
+    <path d="M186 56 V85" stroke="#0078aa" stroke-width="4" marker-end="url(#arr)"/>
+    <rect x="18" y="96" width="207" height="50" rx="12" fill="#fff" stroke="#f28e2b" stroke-width="2"/><text x="122" y="128" text-anchor="middle" class="eq">L(f,ϕ)+N(f,ϕ)</text>
+    <path d="M122 153 V185" stroke="#0078aa" stroke-width="4" marker-end="url(#arr)"/>
+    <rect x="18" y="196" width="207" height="48" rx="12" fill="#e6f7f5" stroke="#009688" stroke-width="2"/><text x="122" y="227" text-anchor="middle" class="eq">∂f/∂t</text>
+  </g>
+
+  <!-- arrows between panels -->
+  <path d="M374 245 H420" stroke="#0078aa" stroke-width="6" marker-end="url(#arrSmall)"/>
+  <path d="M744 245 H790" stroke="#0078aa" stroke-width="6" marker-end="url(#arrSmall)"/>
+
+  <text x="560" y="472" text-anchor="middle" class="small">GKW/gyaradax: pseudospectral perpendicular directions + finite differences in s and velocity space</text>
+</svg>

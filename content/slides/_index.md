@@ -1,6 +1,6 @@
 ---
-title: All Slide Decks
-description: Browse all available slide presentations
+title: Presentations
+description: Conference talks, seminars, and teaching materials
 view: slides-gallery
 columns: 2
 cascade:
@@ -9,4 +9,4 @@ cascade:
     - present
 ---
 
-Browse all slide decks below. Click any deck to start the presentation.
+Research talks and seminars on neural fields, physics-based simulation, and scientific computing.

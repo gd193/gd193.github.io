@@ -1,0 +1,5 @@
+{{/* Render the existing custom block from its canonical source location. */}}
+{{ $source := readFile "blox/portrait-hero/block.html" }}
+{{ $template := resources.FromString "portrait-hero.html" $source }}
+{{ $rendered := $template | resources.ExecuteAsTemplate "portrait-hero-rendered.html" . }}
+{{ $rendered.Content | safeHTML }}

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="520" viewBox="0 0 1120 520">
+  <defs>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.8" markerHeight="4.8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0078aa"/>
+    </marker>
+    <marker id="arrowPurple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#b83280"/>
+    </marker>
+    <style>
+      text{font-family:Arial,Helvetica,sans-serif;fill:#1f2937}.big{font-size:34px;font-weight:800}.mid{font-size:24px;font-weight:700}.small{font-size:18px}.tiny{font-size:15px;fill:#4b5563}.box{rx:18;stroke-width:3}.tag{font-size:16px;font-weight:700;fill:#fff}
+    </style>
+  </defs>
+  <rect width="1120" height="520" fill="#ffffff"/>
+  <rect x="60" y="85" width="330" height="280" rx="22" fill="#eef2f7" stroke="#64748b" stroke-width="3"/>
+  <text x="225" y="145" text-anchor="middle" class="big">GKW</text>
+  <text x="225" y="185" text-anchor="middle" class="mid">Fortran 90</text>
+  <text x="225" y="225" text-anchor="middle" class="small">MPI · decades of physics</text>
+  <text x="225" y="260" text-anchor="middle" class="small">~30K LOC reference</text>
+  <text x="225" y="295" text-anchor="middle" class="small">validated gyrokinetics</text>
+  <rect x="100" y="395" width="250" height="42" rx="21" fill="#334155"/>
+  <text x="225" y="422" text-anchor="middle" class="tag">bitbucket.org/gkw/gkw</text>
+
+  <path d="M410 225 C500 165 610 165 705 225" fill="none" stroke="#0078aa" stroke-width="8" marker-end="url(#arrowBlue)"/>
+  <path d="M705 285 C610 345 500 345 410 285" fill="none" stroke="#b83280" stroke-width="5" stroke-dasharray="14 10" marker-end="url(#arrowPurple)"/>
+  <text x="560" y="170" text-anchor="middle" class="mid" fill="#0078aa">agent-assisted port</text>
+  <text x="560" y="375" text-anchor="middle" class="small" fill="#b83280">tests compare back to GKW</text>
+
+  <rect x="730" y="85" width="330" height="280" rx="22" fill="#e6f7f5" stroke="#009688" stroke-width="3"/>
+  <text x="895" y="145" text-anchor="middle" class="big">gyaradax</text>
+  <text x="895" y="185" text-anchor="middle" class="mid">JAX solver</text>
+  <text x="895" y="225" text-anchor="middle" class="small">GPU · JIT · autodiff-ready</text>
+  <text x="895" y="260" text-anchor="middle" class="small">~1.5K LOC core</text>
+  <text x="895" y="295" text-anchor="middle" class="small">growth rates · fluxes · spectra</text>
+  <rect x="770" y="395" width="250" height="42" rx="21" fill="#009688"/>
+  <text x="895" y="422" text-anchor="middle" class="tag">github.com/gerkone/gyaradax</text>
+</svg>

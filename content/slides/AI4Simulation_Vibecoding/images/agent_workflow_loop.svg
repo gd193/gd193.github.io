@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="520" viewBox="0 0 1120 520">
+  <defs>
+    <marker id="arrSmall" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0078aa"/>
+    </marker>
+    <marker id="arrLoop" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b83280"/>
+    </marker>
+    <style>
+      text{font-family:Arial,Helvetica,sans-serif;fill:#1f2937}.num{font-size:21px;font-weight:800;fill:#fff}.head{font-size:23px;font-weight:800}.body{font-size:17px;fill:#4b5563}.warn{font-size:18px;font-weight:800;fill:#b83280}.foot{font-size:18px;fill:#4b5563}
+    </style>
+  </defs>
+  <rect width="1120" height="520" fill="#fff"/>
+
+  <g transform="translate(75,105)">
+    <rect width="230" height="130" rx="18" fill="#eef2f7" stroke="#64748b" stroke-width="3"/>
+    <circle cx="33" cy="32" r="22" fill="#64748b"/><text x="33" y="40" text-anchor="middle" class="num">1</text>
+    <text x="125" y="58" text-anchor="middle" class="head">Human prep</text>
+    <text x="125" y="88" text-anchor="middle" class="body">I/O · references</text>
+    <text x="125" y="112" text-anchor="middle" class="body">tests · constraints</text>
+  </g>
+
+  <g transform="translate(445,105)">
+    <rect width="230" height="130" rx="18" fill="#e6f7f5" stroke="#009688" stroke-width="3"/>
+    <circle cx="33" cy="32" r="22" fill="#009688"/><text x="33" y="40" text-anchor="middle" class="num">2</text>
+    <text x="125" y="58" text-anchor="middle" class="head">Agent port</text>
+    <text x="125" y="88" text-anchor="middle" class="body">ingest Fortran</text>
+    <text x="125" y="112" text-anchor="middle" class="body">implement against tests</text>
+  </g>
+
+  <g transform="translate(815,105)">
+    <rect width="230" height="130" rx="18" fill="#fff4e6" stroke="#f28e2b" stroke-width="3"/>
+    <circle cx="33" cy="32" r="22" fill="#f28e2b"/><text x="33" y="40" text-anchor="middle" class="num">3</text>
+    <text x="125" y="58" text-anchor="middle" class="head">Human gate</text>
+    <text x="125" y="88" text-anchor="middle" class="body">review signs · NaNs</text>
+    <text x="125" y="112" text-anchor="middle" class="body">approve next phase</text>
+  </g>
+
+  <path d="M305 170 H440" stroke="#0078aa" stroke-width="5" marker-end="url(#arrSmall)"/>
+  <path d="M675 170 H810" stroke="#0078aa" stroke-width="5" marker-end="url(#arrSmall)"/>
+
+  <path d="M930 258 C930 350 190 350 190 258" fill="none" stroke="#b83280" stroke-width="4.5" stroke-dasharray="13 10" marker-end="url(#arrLoop)"/>
+  <rect x="300" y="344" width="520" height="34" rx="17" fill="#ffffff" opacity="0.92"/>
+  <text x="560" y="367" text-anchor="middle" class="warn">if tests or physics fail: revise prompt / implementation</text>
+
+  <text x="560" y="430" text-anchor="middle" class="foot">The harness is the product: reference runs, tests, prompts, and review gates.</text>
+</svg>

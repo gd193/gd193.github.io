@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="520" viewBox="0 0 1120 520">
+  <defs>
+    <style>text{font-family:Arial,Helvetica,sans-serif;fill:#1f2937}.big{font-size:32px;font-weight:800}.mid{font-size:22px;font-weight:700}.small{font-size:17px;fill:#4b5563}.axis{font-size:18px;font-weight:700;fill:#fff}</style>
+  </defs>
+  <rect width="1120" height="520" fill="#fff"/>
+  <g transform="translate(80,70)">
+    <rect x="0" y="0" width="440" height="350" rx="24" fill="#eef7fb" stroke="#0078aa" stroke-width="3"/>
+    <text x="220" y="55" text-anchor="middle" class="big">5D gyrokinetics</text>
+    <g transform="translate(65,105)">
+      <rect x="0" y="0" width="80" height="80" rx="12" fill="#0078aa"/><text x="40" y="48" text-anchor="middle" class="axis">kx</text>
+      <rect x="92" y="0" width="80" height="80" rx="12" fill="#009688"/><text x="132" y="48" text-anchor="middle" class="axis">ky</text>
+      <rect x="184" y="0" width="80" height="80" rx="12" fill="#f28e2b"/><text x="224" y="48" text-anchor="middle" class="axis">s</text>
+      <rect x="92" y="100" width="80" height="80" rx="12" fill="#b83280"/><text x="132" y="148" text-anchor="middle" class="axis">v∥</text>
+      <rect x="184" y="100" width="80" height="80" rx="12" fill="#64748b"/><text x="224" y="148" text-anchor="middle" class="axis">μ</text>
+    </g>
+    <text x="220" y="315" text-anchor="middle" class="small">distribution function over space + velocity</text>
+  </g>
+  <g transform="translate(610,70)">
+    <rect x="0" y="0" width="430" height="350" rx="24" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"/>
+    <text x="215" y="55" text-anchor="middle" class="big">why this is hard</text>
+    <circle cx="92" cy="120" r="11" fill="#0078aa"/><text x="120" y="127" class="mid">nonlinear E×B bracket</text>
+    <circle cx="92" cy="175" r="11" fill="#009688"/><text x="120" y="182" class="mid">FFT/IFFT HBM traffic</text>
+    <circle cx="92" cy="230" r="11" fill="#f28e2b"/><text x="120" y="237" class="mid">stencils + shifted boundaries</text>
+    <circle cx="92" cy="285" r="11" fill="#b83280"/><text x="120" y="292" class="mid">RK4 constrained by CFL</text>
+  </g>
+</svg>

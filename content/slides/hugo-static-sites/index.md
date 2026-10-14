@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Introduction to Hugo & Static Sites"
 date: 2025-12-20
 description: "Learn how static site generators like Hugo revolutionize web development"

@@ -1,0 +1,44 @@
+{{/* Local, accessible contact-first header. Preserve HugoBlox's theme handler. */}}
+{{ $contact := site.Data.contact_profiles }}
+<header class="contact-header" data-contact-header>
+  <div class="contact-header-inner">
+    <a class="contact-brand" href="{{ site.Home.RelPermalink }}" aria-label="Eric Volkmann — homepage">Eric Volkmann</a>
+
+    <nav class="contact-sections" id="contact-section-menu" aria-label="Page sections">
+      {{ range site.Menus.main }}
+      <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+      {{ end }}
+    </nav>
+
+    <nav class="contact-profiles" aria-label="Online profiles">
+      {{ range $contact.profiles }}
+      <a class="contact-icon contact-{{ .id }}" href="{{ .url }}" target="_blank" rel="noopener noreferrer"
+         aria-label="{{ .name }} (opens in a new tab)" aria-describedby="contact-tooltip-{{ .id }}">
+        {{ partial "functions/get_icon" (dict "name" .icon "attributes" "aria-hidden=\"true\" focusable=\"false\"") }}
+        <span class="contact-tooltip" id="contact-tooltip-{{ .id }}" role="tooltip">{{ .name }}</span>
+      </a>
+      {{ end }}
+    </nav>
+
+    <div class="contact-controls">
+      <a class="contact-email" href="mailto:{{ $contact.email }}" aria-label="Email Eric Volkmann"
+         aria-describedby="contact-tooltip-email">
+        {{ partial "functions/get_icon" (dict "name" "hero/envelope" "attributes" "aria-hidden=\"true\" focusable=\"false\"") }}
+        <span class="contact-email-label">Email</span>
+        <span class="contact-tooltip" id="contact-tooltip-email" role="tooltip">{{ $contact.email }}</span>
+      </a>
+      {{ if site.Params.hugoblox.header.theme_toggle }}
+      <button class="contact-icon contact-theme theme-toggle" type="button" aria-label="Switch colour theme">
+        <span class="contact-theme-moon" aria-hidden="true">{{ partial "functions/get_icon" (dict "name" "hero/moon" "attributes" "focusable=\"false\"") }}</span>
+        <span class="contact-theme-sun" aria-hidden="true">{{ partial "functions/get_icon" (dict "name" "hero/sun" "attributes" "focusable=\"false\"") }}</span>
+      </button>
+      {{ end }}
+      <button class="contact-icon contact-menu-toggle" type="button" aria-label="Open navigation"
+              aria-controls="contact-section-menu" aria-expanded="false" hidden>
+        <span class="contact-menu-open" aria-hidden="true">{{ partial "functions/get_icon" (dict "name" "hero/bars-3" "attributes" "focusable=\"false\"") }}</span>
+        <span class="contact-menu-close" aria-hidden="true">{{ partial "functions/get_icon" (dict "name" "hero/x-mark" "attributes" "focusable=\"false\"") }}</span>
+      </button>
+    </div>
+  </div>
+</header>
+<script src="{{ "js/contact-header.js" | relURL }}" defer></script>

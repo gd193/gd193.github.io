@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="520" viewBox="0 0 1120 520">
+  <defs>
+    <style>
+      text{font-family:Arial,Helvetica,sans-serif;fill:#1f2937}.title{font-size:32px;font-weight:800}.big{font-size:34px;font-weight:800}.mid{font-size:22px;font-weight:700}.small{font-size:17px;fill:#4b5563}.tag{font-size:16px;font-weight:800;fill:#fff}.mono{font-family:Consolas,Menlo,monospace;font-size:17px;fill:#334155}.box{stroke-width:3;rx:18}.warn{fill:#fff4e6;stroke:#f28e2b}.blue{fill:#eef7fb;stroke:#0078aa}.gray{fill:#f8fafc;stroke:#94a3b8}.purple{fill:#f4efff;stroke:#7f77dd}
+    </style>
+  </defs>
+  <rect width="1120" height="520" fill="#fff"/>
+  <text x="70" y="52" class="title">What the agent had to understand: a legacy HPC solver</text>
+
+  <rect x="65" y="92" width="315" height="315" rx="22" class="gray"/>
+  <text x="222" y="145" text-anchor="middle" class="big">GKW</text>
+  <text x="222" y="184" text-anchor="middle" class="mid">Fortran 90</text>
+  <rect x="105" y="215" width="235" height="44" rx="22" fill="#334155"/>
+  <text x="222" y="244" text-anchor="middle" class="tag">~30k LOC reference</text>
+  <text x="222" y="300" text-anchor="middle" class="small">mature physics code</text>
+  <text x="222" y="328" text-anchor="middle" class="small">many compile-time options</text>
+  <text x="222" y="356" text-anchor="middle" class="small">decades of conventions</text>
+
+  <rect x="430" y="92" width="285" height="145" rx="18" class="blue"/>
+  <text x="572" y="132" text-anchor="middle" class="mid">MPI decomposition</text>
+  <text x="572" y="170" text-anchor="middle" class="small">distributed arrays</text>
+  <text x="572" y="198" text-anchor="middle" class="small">domain layouts hidden in indexing</text>
+
+  <rect x="430" y="262" width="285" height="145" rx="18" class="warn"/>
+  <text x="572" y="302" text-anchor="middle" class="mid">build + run friction</text>
+  <text x="572" y="340" text-anchor="middle" class="small">compilers · MPI · FFT libs</text>
+  <text x="572" y="368" text-anchor="middle" class="small">input files · batch scripts</text>
+
+  <rect x="765" y="92" width="290" height="145" rx="18" class="purple"/>
+  <text x="910" y="132" text-anchor="middle" class="mid">physics encoded in code</text>
+  <text x="910" y="170" text-anchor="middle" class="small">sign conventions</text>
+  <text x="910" y="198" text-anchor="middle" class="small">normalizations · geometry</text>
+
+  <rect x="765" y="262" width="290" height="145" rx="18" class="gray"/>
+  <text x="910" y="302" text-anchor="middle" class="mid">hard ML integration</text>
+  <text x="910" y="340" text-anchor="middle" class="small">CPU MPI Fortran solver</text>
+  <text x="910" y="368" text-anchor="middle" class="small">+ GPU JAX/Python model</text>
+
+  <rect x="135" y="438" width="850" height="44" rx="22" fill="#eef2f7" stroke="#cbd5e1"/>
+  <text x="560" y="467" text-anchor="middle" class="mono">Goal: extract the numerical core while preserving GKW behavior</text>
+</svg>

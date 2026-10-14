@@ -11,11 +11,11 @@ hugoblox:
   # Customize your slide deck site branding
   # ────────────────────────────────────────────────────────────────────────────
   identity:
-    name: "My Slides"
-    organization: ""
+    name: "Eric Volkmann"
+    organization: "Johannes Kepler University Linz"
     type: person                        # person | organization
-    tagline: "Open-source slide decks"
-    description: "Markdown-based slide presentations. Write in Markdown, present anywhere, share with anyone."
+    tagline: "AI/ML Researcher"
+    description: "AI/ML research at the intersection of 3D machine learning, AI for Science, and physics."
     social:
       twitter: ""                       # Twitter/X handle for social cards
 
@@ -52,7 +52,7 @@ hugoblox:
     style: navbar-simple                # Clean, minimal navbar
     sticky: true
     align: center
-    search: true                        # Enable search for larger deck collections
+    search: false
     theme_toggle: true
     theme_picker: false
     language_switcher: false
@@ -69,7 +69,7 @@ hugoblox:
   # COPYRIGHT
   # ────────────────────────────────────────────────────────────────────────────
   copyright:
-    notice: "© {year} {name}"
+    notice: "© {year} Eric Volkmann"
     license:
       type: cc
       allow_derivatives: true
@@ -92,7 +92,7 @@ hugoblox:
   # SEARCH
   # ────────────────────────────────────────────────────────────────────────────
   search:
-    enable: true
+    enable: false
     suggestions: []
 
   # ────────────────────────────────────────────────────────────────────────────

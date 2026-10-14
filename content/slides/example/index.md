@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Markdown Slides Demo"
 date: 2025-12-15
 description: "A comprehensive demo of all Reveal.js features available in Hugo Blox"
