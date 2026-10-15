@@ -20,13 +20,6 @@ sections:
         poster_dark: /media/research/julia-crimson-poster.webp
       text: |-
         **AI/ML Researcher** working at the intersection of 3D machine learning, AI for Science, and physics.
-      primary_action:
-        text: Research interests
-        url: '#research'
-        icon: arrow-down
-      secondary_action:
-        text: Presentations
-        url: '#presentations'
     design:
       spacing:
         padding: ['5rem', '0', '4rem', '0']
@@ -37,9 +30,9 @@ sections:
     content:
       title: About
       text: |-
-        I am a PhD candidate at the Institute for Machine Learning at Johannes Kepler University Linz, supervised by [Prof. Johannes Brandstetter](https://scholar.google.com/citations?user=KiRvOHcAAAAJ) and [Prof. Sepp Hochreiter](https://scholar.google.com/citations?user=tvUH3WMAAAAJ). I am currently a research intern in the Computational Geometry Team at [Braid Technologies](https://braid.tech/) in Tokyo, working on autonomous CAD for physics-driven design optimization and discovery.
+        I am a PhD candidate at the Institute for Machine Learning at Johannes Kepler University Linz, supervised by [Prof. Johannes Brandstetter](https://scholar.google.com/citations?user=KiRvOHcAAAAJ) and [Prof. Sepp Hochreiter](https://scholar.google.com/citations?user=tvUH3WMAAAAJ). I am currently a research intern in the Computational Geometry Team at [Braid Technologies](https://braid.tech/) in Tokyo, building an autonomous CAD system that discovers and optimizes manufacturable engineering designs.
 
-        I work on inverse design using implicit representations (neural or otherwise), coupling geometry with physical simulation and optimization. My projects include geometry-informed neural networks and generative topology optimization, with a focus on producing diverse and structurally compliant designs.
+        I work on inverse design using implicit representations (neural or otherwise), coupling geometry with physical simulation and optimization. My research projects include geometry-informed neural networks, generative topology optimization, and GPU-accelerated differentiable physics solvers, with a focus on producing diverse and structurally compliant designs.
 
         Prior to my PhD, I completed my MSc and BSc in Physics at Heidelberg University in 2023, where my master's research focused on generative state-space models for reconstructing nonlinear dynamical systems.
 
@@ -63,7 +56,8 @@ sections:
             - Structured representations
         - name: Dynamical systems & scientific ML
           description: Using machine learning to reconstruct, analyze, and model complex dynamical systems from limited observations.
-          image: research/dynamical-systems-learning.png
+          image: research/lorenz-rose-flow.webp
+          video: /media/research/lorenz-rose-flow.mp4
           icon: hero/arrow-path
           gradient: from-emerald-500 to-teal-600
           status: active
@@ -73,7 +67,7 @@ sections:
             - System identification
         - name: Generative topology optimization
           description: Developing generative approaches for underdetermined scientific problems and topology optimization.
-          image: research/generative-topology-optimization.png
+          image: research/generative-to-method.png
           icon: hero/beaker
           gradient: from-violet-500 to-fuchsia-600
           status: active
@@ -135,10 +129,8 @@ sections:
   - block: markdown
     id: selected-work
     content:
-      title: Selected work
+      title: Publications
       text: |-
-        ### Publications
-
         {{< publication-list >}}
 
 

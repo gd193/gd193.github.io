@@ -405,31 +405,17 @@ html.dark {
 }
 #presentations .group:hover img[src$="twisted-torus-twist10.gif"] { transform: none; }
 
-/* Compact paper rows: preserve the full author list and keep assets easy to scan. */
+/* Text-only publication rows with full author lists and paper links. */
 #selected-work .prose .publication-list { list-style: none; padding: 0; margin: 0; }
 #selected-work .prose .publication-row {
   display: grid;
-  grid-template-columns: 140px minmax(0, 1fr);
-  gap: 1.25rem;
+  grid-template-columns: minmax(0, 1fr);
   padding: 1.5rem 0;
   margin: 0;
   border-bottom: 1px solid #dce3ed;
 }
 .dark #selected-work .prose .publication-row { border-color: #272c35; }
 #selected-work .publication-row:last-child { border-bottom: 0; }
-#selected-work .publication-teaser {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-self: start;
-  height: 100px;
-  overflow: hidden;
-  border: 1px solid #dce3ed;
-  border-radius: .625rem;
-  background: #f5f7fa;
-}
-.dark #selected-work .publication-teaser { background: #141820; border-color: #272c35; }
-#selected-work .publication-teaser img { width: 100%; height: 100%; object-fit: contain; margin: 0; }
 #selected-work .publication-content { min-width: 0; }
 #selected-work .publication-content h3 { margin: 0 0 .5rem; font-size: 1.125rem; line-height: 1.4; }
 #selected-work .publication-content h3 a { text-decoration: none; }
@@ -487,8 +473,6 @@ html.dark {
 #selected-work :is(a, button, summary, pre):focus-visible { outline: 2px solid #2457a7; outline-offset: 3px; }
 .dark #selected-work :is(a, button, summary, pre):focus-visible { outline-color: #8ab4f8; }
 @media (max-width: 540px) {
-  #selected-work .prose .publication-row { grid-template-columns: 80px minmax(0, 1fr); gap: .75rem; }
-  #selected-work .publication-teaser { height: 80px; }
   #selected-work .publication-content h3 { font-size: 1rem; }
   #selected-work .publication-authors { font-size: .875rem; }
 }
@@ -501,3 +485,23 @@ html.dark {
     transition: color .5s ease-in-out, background-color .5s ease-in-out, border-color .5s ease-in-out;
   }
 }
+
+/* Keep the entire Lorenz silhouette visible, including on narrow cards. */
+.research-card-motion { position: relative; width: 100%; height: 100%; background: #071015; }
+.research-card-motion img,
+.research-card-motion video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.research-card-motion video { opacity: 0; transition: opacity .3s ease; }
+.research-card-motion[data-ready] video { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .research-card-motion video { display: none; }
+}
+
+/* Preserve the full topology-optimization diagram and its transparent labels. */
+#research div:has(> img[src$="generative-to-method.png"]) { background: #fff; }
+#research img[src$="generative-to-method.png"] {
+  object-fit: contain;
+  padding: 10px;
+  opacity: 1;
+  transform: none;
+}
+#research .group:hover img[src$="generative-to-method.png"] { transform: none; }

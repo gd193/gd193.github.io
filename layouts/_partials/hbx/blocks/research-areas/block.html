@@ -49,6 +49,7 @@
 {{ end }}
 
 {{ $items := slice }}
+{{ $has_video := false }}
 {{ if gt (len $items_iter) 0 }}
   {{ range $items_iter }}
     {{ if reflect.IsMap . }}
@@ -56,6 +57,7 @@
       {{ $description := "" }}
       {{ $icon := "" }}
       {{ $image := "" }}
+      {{ $video := "" }}
       {{ $gradient := "" }}
       {{ $url := "" }}
       {{ $status := "" }}
@@ -71,6 +73,7 @@
       {{ with index . "description" }}{{ $description = strings.TrimSpace (printf "%v" .) }}{{ end }}
       {{ with index . "icon" }}{{ $icon = printf "%v" . }}{{ end }}
       {{ with index . "image" }}{{ $image = strings.TrimSpace (printf "%v" .) }}{{ end }}
+      {{ with index . "video" }}{{ $video = strings.TrimSpace (printf "%v" .) }}{{ $has_video = true }}{{ end }}
       {{ with index . "gradient" }}{{ $gradient = strings.TrimSpace (printf "%v" .) }}{{ end }}
       {{ with index . "url" }}{{ $url = strings.TrimSpace (printf "%v" .) }}{{ end }}
       {{ with index . "status" }}{{ $status = lower (strings.TrimSpace (printf "%v" .)) }}{{ end }}
@@ -107,7 +110,7 @@
       {{ end }}
 
       {{ if or $name $description }}
-        {{ $items = $items | append (dict "name" $name "description" $description "icon" $icon "image" $image "gradient" $gradient "url" $url "status" $status "topics" $topics "team_size" $team_size "publications" $publications "funding" $funding "cta" (dict "url" $cta_url "text" $cta_text "icon" $cta_icon)) }}
+        {{ $items = $items | append (dict "name" $name "description" $description "icon" $icon "image" $image "video" $video "gradient" $gradient "url" $url "status" $status "topics" $topics "team_size" $team_size "publications" $publications "funding" $funding "cta" (dict "url" $cta_url "text" $cta_text "icon" $cta_icon)) }}
       {{ end }}
     {{ end }}
   {{ end }}
@@ -175,7 +178,9 @@
 
           {{/* Card Image/Icon Header */}}
           {{ $header_content := "" }}
-          {{ if $image }}
+          {{ if index $item "video" }}
+            {{ $header_content = partial "research-card-video.html" $item }}
+          {{ else if $image }}
             {{/* Resolve image from page bundle, site assets, remote, or static URLs */}}
             {{ $image_resource := false }}
             {{ $image_url := "" }}
@@ -467,4 +472,8 @@
   }
 }
 </style>
+{{ end }}
+
+{{ if $has_video }}
+<script src="{{ "js/research-card-video.js" | relURL }}" defer></script>
 {{ end }}

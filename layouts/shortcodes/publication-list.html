@@ -1,13 +1,7 @@
 <ul class="publication-list" aria-label="Selected publications">
 {{ range site.Data.publications }}
-  {{ $paper := . }}
-  {{ $teaser := resources.Get .teaser }}
-  {{ if reflect.IsImageResourceProcessable $teaser }}{{ $teaser = $teaser.Fit "320x220 webp" }}{{ end }}
   {{ $bibtex := readFile (printf "static/bibtex/%s.bib" .id) }}
   <li class="publication-row" aria-labelledby="publication-{{ .id }}">
-    <a class="publication-teaser" href="{{ .paper }}" target="_blank" rel="noopener noreferrer" aria-label="Read {{ .title }} (opens in a new tab)">
-      <img src="{{ $teaser.RelPermalink }}" alt="{{ .teaser_alt }}" loading="lazy" decoding="async" width="{{ $teaser.Width }}" height="{{ $teaser.Height }}">
-    </a>
     <div class="publication-content">
       <h3 id="publication-{{ .id }}"><a href="{{ .paper }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a></h3>
       <p class="publication-authors">{{ range $index, $author := .authors }}{{ if $index }}, {{ end }}{{ if eq $author "Eric Volkmann" }}<strong>{{ $author }}</strong>{{ else }}{{ $author }}{{ end }}{{ end }}</p>
