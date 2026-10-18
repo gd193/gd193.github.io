@@ -113,7 +113,7 @@ sections:
             <h3>Professional Experience</h3>
             <div class="cv-entry">
               <p><strong>Research Intern · Computational Geometry Team</strong><br><a href="https://braid.tech/">Braid Technologies</a> · Tokyo, Japan <span class="cv-date">Jul–Nov 2026</span></p>
-              <p class="cv-detail">Research on autonomous CAD for physics-driven design optimization and discovery.</p>
+              <p class="cv-detail">Development of an autonomous CAD system for physics-driven design optimization and discovery.</p>
             </div>
             <div class="cv-entry">
               <p><strong>Working Student · Data Science</strong><br><a href="https://www.scribos.com/">Kurz Scribos</a> · Heidelberg, Germany <span class="cv-date">May 2021–Jul 2023</span></p>

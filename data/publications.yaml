@@ -2,15 +2,15 @@
   title: 'gyaradax: Local Gyrokinetics JAX Code'
   authors: [Gianluca Galletti, Eric Volkmann, Johannes Brandstetter]
   venue: AI4Science Workshop · ICML 2026
-  paper: https://openreview.net/forum?id=Sgs7yLTkJ0
+  paper: https://arxiv.org/abs/2604.06085
   code: https://github.com/gerkone/gyaradax
   teaser: media/presentations/vibecoding-gyaradax.png
   teaser_alt: gyaradax project mascot
 - id: tom
   title: Diverse Topology Optimization using Modulated Neural Fields
   authors: [Andreas Radler, Eric Volkmann, Johannes Brandstetter, Arturs Berzins]
-  venue: AI for Science Workshop · NeurIPS 2025
-  paper: https://openreview.net/forum?id=2Qccww9opt
+  venue: AI4Science Workshop · NeurIPS 2025
+  paper: https://arxiv.org/abs/2502.13174
   code: https://github.com/ml-jku/Topology-Optimization-Modulated-Neural-Fields
   teaser: media/publications/tom-method.png
   teaser_alt: Topology optimization using modulated neural fields method diagram
@@ -26,7 +26,7 @@
   title: Exploring Diverse Solutions for Underdetermined Problems
   authors: [Eric Volkmann, Andreas Radler, Johannes Brandstetter, Arturs Berzins]
   venue: Methods and Opportunities at Small Scale (MOSS) Workshop · ICML 2025
-  paper: https://openreview.net/forum?id=HEqtcVOicH
+  paper: https://icml.cc/virtual/2025/52615
   code: https://github.com/gd193/MOSS/tree/main/submissions/submission-33
   teaser: media/publications/moss-neural-curve.gif
   teaser_alt: Neural curve spreading through a horseshoe-shaped design region during diversity optimization
