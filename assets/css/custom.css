@@ -136,17 +136,30 @@ html.dark {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background: url('/media/research/julia-white-poster.webp') right center / cover no-repeat #fff;
+  background: #fff;
   opacity: 1;
 }
 #section-hero .researcher-orbit-background[data-theme="dark"] {
-  background-image: url('/media/research/julia-crimson-poster.webp');
   background-color: #000;
   opacity: 0;
   transition: opacity .5s ease-in-out;
 }
 #section-hero[data-render-theme="dark"] .researcher-orbit-background[data-theme="dark"] { opacity: 1; }
 #section-hero .researcher-orbit-video { opacity: 0; }
+#section-hero .researcher-orbit-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+}
+#section-hero .researcher-orbit-poster--dark { display: none; }
+.dark #section-hero .researcher-orbit-background:not([data-theme]) .researcher-orbit-poster--light,
+#section-hero .researcher-orbit-background[data-theme="dark"] .researcher-orbit-poster--light { display: none; }
+.dark #section-hero .researcher-orbit-background:not([data-theme]) .researcher-orbit-poster--dark,
+#section-hero .researcher-orbit-background[data-theme="dark"] .researcher-orbit-poster--dark { display: block; }
+#section-hero .researcher-orbit-video { position: relative; transition: opacity .3s ease; }
 #section-hero .researcher-orbit-background[data-ready] .researcher-orbit-video { opacity: 1; }
 #section-hero .researcher-orbit-background::after {
   content: '';
@@ -180,14 +193,15 @@ html.dark {
 #section-hero .researcher-orbit-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 #section-hero .researcher-orbit-toggle[hidden] { display: none; }
 @media (prefers-reduced-motion: reduce) {
-  #section-hero .researcher-orbit-background,
+  #section-hero .researcher-orbit-video,
   #section-hero .researcher-orbit-toggle { display: none; }
 }
 
 /* Match the mobile crop and reserve space below links for the playback control. */
 @media (max-width: 640px) {
   #section-hero:has(.researcher-orbit-toggle) { padding-bottom: 4.5rem !important; }
-  #section-hero .researcher-orbit-video { object-position: 65% center; }
+  #section-hero .researcher-orbit-video,
+  #section-hero .researcher-orbit-poster { object-position: 65% center; }
 }
 
 /* Contact-first navigation: persistent profiles, full-size keyboard/touch targets. */

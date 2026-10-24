@@ -20,54 +20,80 @@
   let active = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
   let desired = active, visible = false, userPaused = false, switching = false;
   let generation = 0, cleanupTimer;
+  let seekGeneration = -1, fading = null;
   const failed = new Set();
   const pending = new Set();
   hero.dataset.renderTheme = active;
   const allowed = () => !motion.matches && !connection?.saveData;
   const canPlay = () => allowed() && visible && !document.hidden && !userPaused;
+  const shouldPlay = (theme) => canPlay() && !failed.has(theme) &&
+    (theme === active || theme === fading ||
+      (switching && theme === desired && seekGeneration === generation));
+
+  function buffered(theme) {
+    const video = players[theme];
+    // Require the whole loop in one contiguous range, rather than one decoded frame.
+    return Number.isFinite(video.duration) && video.duration > 0 &&
+      video.buffered.length > 0 && video.buffered.start(0) < 0.05 &&
+      video.buffered.end(0) >= video.duration - 0.05;
+  }
 
   function load(theme) {
     const video = players[theme];
+    const poster = layers[theme].querySelector(`.researcher-orbit-poster--${theme}`);
+    // Let the small preview finish before competing for bandwidth with the MP4.
+    if (poster && !poster.complete) return;
     if (!video.getAttribute('src') && !failed.has(theme)) {
+      video.preload = 'auto';
       video.src = (theme === 'dark' && original.dataset.srcDark) || original.dataset.src;
       video.load();
     }
   }
   function play(theme) {
     const video = players[theme];
-    if (!canPlay() || failed.has(theme) || pending.has(theme) || !video.paused) return;
+    if (!shouldPlay(theme) || !buffered(theme) || pending.has(theme) || !video.paused) return;
     pending.add(theme);
+    let aborted = false;
     video.play().catch(error => {
       if (error.name === 'NotAllowedError') userPaused = true;
-      else if (error.name !== 'AbortError') failed.add(theme);
+      else if (error.name === 'AbortError') aborted = true;
+      else failed.add(theme);
     }).finally(() => {
       pending.delete(theme);
-      if (!canPlay() || switching || failed.has(theme)) { video.pause(); updatePlayback(); }
+      if (!shouldPlay(theme)) video.pause();
+      // An interrupted play may finish after a rapid toggle back to this theme.
+      if (aborted || !canPlay() || failed.has(theme)) updatePlayback();
     });
   }
   function updatePlayback() {
-    button.hidden = !allowed() || failed.has(active);
+    button.hidden = !allowed() || failed.has(active) || !buffered(active);
     button.textContent = userPaused ? 'Play animation' : 'Pause animation';
     for (const theme of ['light', 'dark']) {
-      if (theme !== active || switching || !canPlay()) players[theme].pause();
+      if (!shouldPlay(theme)) players[theme].pause();
     }
     if (allowed() && visible && !document.hidden) load(desired);
-    if (!switching) play(active);
+    play(active);
+    if (fading) play(fading);
+    if (switching && seekGeneration === generation) play(desired);
   }
   function reveal(theme, ticket) {
     if (ticket !== generation || theme !== desired) return;
     const previous = active;
     active = theme;
     switching = false;
+    seekGeneration = -1;
+    fading = previous !== theme ? previous : null;
     // Paint the incoming decoded frame before starting the opacity transition.
     requestAnimationFrame(() => requestAnimationFrame(() => {
       if (ticket !== generation) return;
       hero.dataset.renderTheme = theme;
       updatePlayback();
-      if (canPlay() && previous !== theme) play(previous);
       clearTimeout(cleanupTimer);
       cleanupTimer = setTimeout(() => {
-        if (ticket === generation && previous !== active) players[previous].pause();
+        if (ticket === generation && previous !== active) {
+          fading = null;
+          players[previous].pause();
+        }
       }, 550);
     }));
   }
@@ -75,32 +101,47 @@
     const ticket = generation, target = desired, incoming = players[target];
     if (!switching) return;
     if (!allowed() || failed.has(target)) { reveal(target, ticket); return; }
-    if (incoming.readyState < 2 || !Number.isFinite(incoming.duration)) return;
-    const time = players[active].currentTime % incoming.duration;
-    if (Math.abs(incoming.currentTime - time) > 0.015) {
-      incoming.addEventListener('seeked', () => reveal(target, ticket), {once:true});
-      incoming.currentTime = time;
-    } else if (!incoming.seeking) reveal(target, ticket);
+    if (!buffered(target)) return;
+    if (seekGeneration !== ticket) {
+      seekGeneration = ticket;
+      const time = players[active].currentTime % incoming.duration;
+      if (Math.abs(incoming.currentTime - time) > 0.015) incoming.currentTime = time;
+    }
+    // play() drives decoding after a seek; waiting for canplay here can deadlock.
+    // Keep the outgoing video moving and reveal only when incoming actually plays.
+    if (canPlay()) play(target);
+    else if (!incoming.seeking && incoming.readyState >= 2) {
+      layers[target].setAttribute('data-ready', '');
+      reveal(target, ticket);
+    }
   }
   function sync() {
     const next = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
     if (next !== desired) {
       generation++;
       clearTimeout(cleanupTimer);
+      if (fading && fading !== active) players[fading].pause();
+      fading = null;
+      seekGeneration = -1;
       desired = next;
       switching = desired !== active;
       if (!switching) hero.dataset.renderTheme = active;
-      for (const video of Object.values(players)) video.pause();
     }
     updatePlayback();
     prepareSwitch();
   }
   for (const theme of ['light', 'dark']) {
     const video = players[theme];
-    video.addEventListener('loadeddata', () => {
+    for (const event of ['loadeddata', 'progress', 'canplay', 'canplaythrough', 'seeked']) video.addEventListener(event, sync);
+    video.addEventListener('playing', () => {
+      if (!shouldPlay(theme)) { video.pause(); return; }
       layers[theme].setAttribute('data-ready', '');
-      prepareSwitch();
+      if (switching && theme === desired && seekGeneration === generation) reveal(theme, generation);
     });
+    video.addEventListener('waiting', () => { layers[theme].removeAttribute('data-ready'); });
+    const poster = layers[theme].querySelector(`.researcher-orbit-poster--${theme}`);
+    poster?.addEventListener('load', sync);
+    poster?.addEventListener('error', sync);
     video.addEventListener('error', () => {
       failed.add(theme);
       layers[theme].removeAttribute('data-ready');

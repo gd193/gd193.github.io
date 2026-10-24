@@ -16,8 +16,8 @@ sections:
         enabled: true
         src: /media/research/julia-white.mp4
         src_dark: /media/research/julia-crimson.mp4
-        poster: /media/research/julia-white-poster.webp
-        poster_dark: /media/research/julia-crimson-poster.webp
+        poster: /media/research/julia-white-preview.webp
+        poster_dark: /media/research/julia-crimson-preview.webp
       text: |-
         **AI/ML Researcher** working at the intersection of 3D machine learning, AI for Science, and physics.
     design:
