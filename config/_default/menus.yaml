@@ -11,6 +11,7 @@ main:
   - name: Publications
     url: /#selected-work
     weight: 35
-  - name: Presentations
-    url: /#presentations
-    weight: 40
+  # Temporarily hidden alongside the presentations section.
+  # - name: Presentations
+  #   url: /#presentations
+  #   weight: 40

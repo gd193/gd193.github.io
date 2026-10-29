@@ -12,7 +12,7 @@ assert(headerMarkup, 'Contact header rendered');
 assert(!/id="profiles"/.test(html), 'Standalone profiles section removed');
 const links = [...headerMarkup.matchAll(/href="([^"]+)"/g)].map((m) => m[1].replaceAll('&amp;', '&'));
 for (const href of [
-  '/#research', '/#cv', '/#selected-work', '/#presentations', 'mailto:volkmann@ml.jku.at',
+  '/#research', '/#cv', '/#selected-work', 'mailto:volkmann@ml.jku.at',
   'https://github.com/gd193',
   'https://scholar.google.com/citations?user=BTpkGgEAAAAJ&hl=en&oi=ao',
   'https://orcid.org/0009-0001-3931-3771', 'https://x.com/e_volkmann',
@@ -20,7 +20,8 @@ for (const href of [
 ]) assert(links.includes(href), `Preserved link: ${href}`);
 assert(links.indexOf('/#research') < links.indexOf('/#cv'));
 assert(links.indexOf('/#cv') < links.indexOf('/#selected-work'));
-assert(links.indexOf('/#selected-work') < links.indexOf('/#presentations'));
+assert(!links.includes('/#presentations'), 'Temporarily hidden presentations navigation');
+assert(!/id="presentations"/.test(html), 'Presentations section is not rendered');
 assert.equal((headerMarkup.match(/rel="noopener noreferrer"/g) || []).length, 5);
 for (const id of ['github', 'scholar', 'orcid', 'x', 'linkedin', 'email']) {
   assert(headerMarkup.includes(`aria-describedby="contact-tooltip-${id}"`));

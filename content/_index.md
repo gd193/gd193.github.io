@@ -134,32 +134,33 @@ sections:
         {{< publication-list >}}
 
 
-  - block: research-areas
-    id: presentations
-    content:
-      title: Selected presentations
-      items:
-        - name: 'Bridging the Gap: Towards Physics-Based Simulation on Neural Fields'
-          description: Research overview presented at TU Vienna, connecting neural geometry with physics-based simulation.
-          image: presentations/twisted-torus-twist10.gif
-          url: /present/slides/tu-vienna-presentation/
-          cta:
-            text: View slides
-            url: /present/slides/tu-vienna-presentation/
-        - name: Walking Neural Spheres
-          description: PhD seminar at JKU Linz on mesh-free PDE solving and geometric queries for neural implicit shapes.
-          image: presentations/neural-spheres.gif
-          url: /present/slides/phd_seminar_ss2026/
-          cta:
-            text: View slides
-            url: /present/slides/phd_seminar_ss2026/
-        - name: VibeCoding4Simulation
-          description: Building gyaradax with coding agents, from gyrokinetic simulation to optimized GPU kernels.
-          image: presentations/vibecoding-gyaradax.png
-          url: /present/slides/ai4simulation_vibecoding/
-          cta:
-            text: View slides
-            url: /present/slides/ai4simulation_vibecoding/
-    design:
-      layout: cards
+  # Presentations temporarily hidden. Uncomment this block and its menu entry to restore.
+  # - block: research-areas
+  #   id: presentations
+  #   content:
+  #     title: Selected presentations
+  #     items:
+  #       - name: 'Bridging the Gap: Towards Physics-Based Simulation on Neural Fields'
+  #         description: Research overview presented at TU Vienna, connecting neural geometry with physics-based simulation.
+  #         image: presentations/twisted-torus-twist10.gif
+  #         url: /present/slides/tu-vienna-presentation/
+  #         cta:
+  #           text: View slides
+  #           url: /present/slides/tu-vienna-presentation/
+  #       - name: Walking Neural Spheres
+  #         description: PhD seminar at JKU Linz on mesh-free PDE solving and geometric queries for neural implicit shapes.
+  #         image: presentations/neural-spheres.gif
+  #         url: /present/slides/phd_seminar_ss2026/
+  #         cta:
+  #           text: View slides
+  #           url: /present/slides/phd_seminar_ss2026/
+  #       - name: VibeCoding4Simulation
+  #         description: Building gyaradax with coding agents, from gyrokinetic simulation to optimized GPU kernels.
+  #         image: presentations/vibecoding-gyaradax.png
+  #         url: /present/slides/ai4simulation_vibecoding/
+  #         cta:
+  #           text: View slides
+  #           url: /present/slides/ai4simulation_vibecoding/
+  #   design:
+  #     layout: cards
 ---
